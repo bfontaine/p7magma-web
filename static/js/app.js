@@ -1,4 +1,4 @@
-var app = angular.module('mg', ['ui.bootstrap']);
+var app = angular.module('mg', []);
 
 app.config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('_{');
