@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="center-block form-block form-block-sm">
+  <form class="form-horizontal" method="post">
+
+    <label class="control-label" for="_iy">Année&nbsp;:</label>
+    <select class="form-control input-lg" id="_iy" name="year">
+      {#
+      These years don't have their results on Magma:
+        <option>L3</option>
+        <option>M1</option>
+      #}
+      <option selected>M2</option>
+    </select>
+
+    <label class="control-label sr-only" for="_if">Prénom</label>
+    <input type="text" class="form-control input-lg"
+           name="firstname" id="_if" placeholder="Prénom" />
+
+    <label class="control-label sr-only" for="_il">Nom</label>
+    <input type="text" class="form-control input-lg"
+           name="lastname" id="_il" placeholder="Nom" />
+
+    <label class="control-label sr-only" for="_ip">Mot de passe</label>
+    <input type="password" class="form-control input-lg"
+           name="password" id="_ip" placeholder="Mot de passe" />
+
+    <input class="btn btn-primary btn-lg btn-block submit" type="submit"
+           value="Login" />
+  </form>
+</div>
+{% endblock %}

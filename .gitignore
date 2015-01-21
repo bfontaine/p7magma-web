@@ -1,0 +1,15 @@
+*~
+.*.sw*
+*.pyc
+__pycache__
+.DS_Store
+*.min.css
+*.min.js
+m2.js
+m2.css
+.webassets-cache
+/venv
+/deploy.sh
+.coverage
+/htmlcov
+/*.log

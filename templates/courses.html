@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Magma 2</h1>
+
+<div ng-controller="mgCourses" id="courses-container">
+  <h2>Cours</h2>
+
+  <table id="courses-list" class="table">
+    <tr>
+      <th>Code</th><th>Titre</th>{# TODO #}
+    </tr>
+    <tr ng-repeat="c in courses">
+      <td>_{c.code}_</td>
+      <td>_{c.title}_</td>
+      {# TODO #}
+    </tr>
+  </table>
+
+</div>
+
+<script type="x-json" id="courses-json">
+  {{ g.student.courses|tojson|safe }}
+</script>
+{% endblock %}
