@@ -54,7 +54,8 @@ def set_g_locale():
 
 @app.before_request
 def set_g_student():
-    setattr(g, 'student', session2student())
+    if '/static/' not in request.path:
+        setattr(g, 'student', session2student())
 
 @app.route('/')
 @unlogged_only
