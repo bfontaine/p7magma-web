@@ -7,8 +7,10 @@ BINUTILS=$(VENV)/bin
 
 PIP=$(BINUTILS)/pip
 
+STAGE_BRANCH=staging
+
 PROD_REMOTE=prod
-PROD_BRANCH=master
+PROD_REMOTE_BRANCH=master
 
 all: run
 
@@ -18,8 +20,15 @@ deps: $(VENV)
 freeze: $(VENV)
 	$(PIP) freeze >| requirements.txt
 
+stage:
+	git checkout $(STAGE_BRANCH) && \
+	git rebase master && \
+	git checkout @{-1}
+
 deploy: stylecheck
-	git push $(PROD_REMOTE) $(PROD_BRANCH)
+	git checkout $(STAGE_BRANCH) && \
+	git push $(PROD_REMOTE) $(PROD_REMOTE_BRANCH) && \
+	git checkout @{-1}
 
 run:
 	$(BINUTILS)/gunicorn app:app
