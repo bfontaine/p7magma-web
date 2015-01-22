@@ -8,7 +8,7 @@ itsdangerous==0.24
 Jinja2==2.7.3
 lxml==3.4.1
 MarkupSafe==0.23
-p7magma==0.1.0
+p7magma==0.1.1
 pep8==1.5.7
 requests==2.5.1
 webassets==0.9
