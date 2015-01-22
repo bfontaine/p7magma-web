@@ -42,6 +42,12 @@
 </div>
 
 <script type="x-json" id="courses-json">
+{% if g.student and g.student.courses %}
   {{ g.student.courses|tojson|safe }}
+{% else %}
+  {% raw %}
+  []
+  {% endraw %}
+{% endif %}
 </script>
 {% endblock %}
