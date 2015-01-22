@@ -5,6 +5,7 @@
 from flask import g, redirect, url_for, session
 from magma.base import Student
 
+
 def student():
     """
     Return the currently connected student
@@ -51,6 +52,7 @@ def form2session(form):
         name = 'passwd' if field == 'password' else field
         fields[name] = form[field]
     session['student'] = fields
+
 
 def session2student():
     if 'student' not in session:

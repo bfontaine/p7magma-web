@@ -25,7 +25,7 @@ js = Bundle(
     # Bootstrap/Bootflat
     'js/vendor/jquery.js',
     'js/vendor/html5shiv.js',
-    #'js/vendor/icheck.min.js',
+    # 'js/vendor/icheck.min.js',
     'js/vendor/bootstrap.min.js',
     'js/vendor/angular.js',
     # Our JS
@@ -52,10 +52,12 @@ def set_g_locale():
     # French
     setattr(g, 'locale', 'fr')
 
+
 @app.before_request
 def set_g_student():
     if '/static/' not in request.path:
         setattr(g, 'student', session2student())
+
 
 @app.route('/')
 @unlogged_only
