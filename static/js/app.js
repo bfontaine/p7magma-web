@@ -57,12 +57,12 @@ app.controller('mgCourses', ['$scope', function rmSMSCtrl($scope) {
     // filters
     followed_only: true,
 
+    follow_all_courses: false,
+
     // late initialization
     _courses: [],
     available_fields: {},
   });
-
-  $scope.followed_only = true;
 
   $scope.courses = function() {
     return $.grep($scope._courses, function(c) {
@@ -76,10 +76,24 @@ app.controller('mgCourses', ['$scope', function rmSMSCtrl($scope) {
   $scope.setCourses = function(cs) {
     $scope._courses = cs || [];
 
-    if ($scope._courses.length) {
+    var l = $scope._courses.length;
+
+    if (l) {
       $.each(cs[0], function(k, v) {
         $scope.available_fields[k] = true;
       });
+    }
+
+    // set 'follow_all_courses'
+
+    if (!($scope.follow_all_courses = l > 0)) {
+      return;
+    }
+    for (var i=0; i<l; i++) {
+      if (!$scope._courses[i].followed) {
+        $scope.follow_all_courses = false;
+        break;
+      }
     }
   };
 

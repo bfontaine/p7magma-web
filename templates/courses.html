@@ -11,7 +11,7 @@
 
   <div ng-show="_courses.length">
   <fieldset>
-        <label>
+        <label ng-hide="follow_all_courses">
           <input type="checkbox" ng-model="followed_only" />
           Cours suivis uniquement
         </label>
