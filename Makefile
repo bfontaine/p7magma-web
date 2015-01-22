@@ -9,9 +9,6 @@ PIP=$(BINUTILS)/pip
 
 STAGE_BRANCH=staging
 
-PROD_REMOTE=prod
-PROD_REMOTE_BRANCH=master
-
 all: run
 
 deps: $(VENV)
@@ -27,7 +24,7 @@ stage:
 
 deploy: stylecheck
 	git checkout $(STAGE_BRANCH) && \
-	git push $(PROD_REMOTE) $(PROD_REMOTE_BRANCH) && \
+	git push -f && \
 	git checkout @{-1}
 
 run:
