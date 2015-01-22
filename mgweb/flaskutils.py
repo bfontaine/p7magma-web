@@ -30,8 +30,8 @@ def _redirect_cond(cond, url_str, name):
 # decorator: redirect to /login if student is not logged in
 logged_only = _redirect_cond(lambda: student() is None, 'login', 'logged_only')
 
-# decorator: redirect to / if student is logged in
-unlogged_only = _redirect_cond(lambda: student(), 'index', 'unlogged_only')
+# decorator: redirect to /courses if student is logged in
+unlogged_only = _redirect_cond(lambda: student(), 'courses', 'unlogged_only')
 
 
 def redirect_for(s, code=302):

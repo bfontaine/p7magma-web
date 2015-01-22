@@ -61,7 +61,7 @@ def set_g_student():
 @unlogged_only
 def index():
     # no homepage for now
-    return redirect_for('courses')
+    return redirect_for('login')
 
 
 @app.route('/courses', methods=['GET', 'POST'])

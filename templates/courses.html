@@ -2,6 +2,10 @@
 {% block body %}
 <h1>Magma 2</h1>
 
+<form method="post" action="/logout">
+  <input type="submit" class="btn btn-default" value="Déconnexion" />
+</form>
+
 <div ng-app="mg" ng-controller="mgCourses" id="courses-container">
   <h2>Cours</h2>
 
