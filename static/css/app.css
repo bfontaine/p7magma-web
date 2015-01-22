@@ -1,1 +1,20 @@
-/* TODO */
+/* we're using vanilla CSS since it's short here */
+
+.form-block {
+  position: relative;
+  top: 40px;
+
+  padding: 20px;
+}
+.form-block input,
+.form-block select {
+  margin-bottom: 20px;
+}
+
+.form-block input[type=submit] {
+  margin-top: 30px;
+}
+
+.form-block.form-short-inputs {
+  max-width: 30em;
+}
