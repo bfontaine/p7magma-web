@@ -17,8 +17,8 @@ js_filters = []
 css_filters = []
 
 if not app.config['DEBUG']:
-    js_filters.concat([IIFE, 'closure_js'])
-    css_filters.concat(['cssmin'])
+    js_filters += [IIFE, 'closure_js']
+    css_filters += ['cssmin']
 
 # - JS
 js = Bundle(
