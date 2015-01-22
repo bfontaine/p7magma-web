@@ -10,9 +10,10 @@
   <h2>Cours</h2>
 
   <fieldset>
-    <p>
-        Filtres&nbsp;:
-    </p>
+        <label>
+          <input type="checkbox" ng-model="followed_only" />
+          Cours suivis uniquement
+        </label>
   </fieldset>
 
   <table id="courses-list" class="table">
@@ -26,7 +27,7 @@
       <th>Résultat</th>
       <th>Session</th>
     </tr>
-    <tr ng-repeat="c in courses">
+    <tr ng-repeat="c in courses()">
       <td>_{c.code}_</td>
       <td>_{c.title}_</td>
       <td>_{c.semester}_</td>
