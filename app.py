@@ -16,9 +16,10 @@ assets = Environment(app)
 js_filters = []
 css_filters = []
 
-if not app.config['DEBUG']:
+if not app.config['DEBUG'] or app.config.get('COMPRESS_ASSETS'):
     js_filters += [IIFE, 'closure_js']
     css_filters += ['cssmin']
+    assets.config["CLOSURE_EXTRA_ARGS"] = ['--language_in', 'ECMASCRIPT5']
 
 # - JS
 js = Bundle(
