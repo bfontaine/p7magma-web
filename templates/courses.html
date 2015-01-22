@@ -9,6 +9,7 @@
 <div ng-app="mg" ng-controller="mgCourses" id="courses-container">
   <h2>Cours</h2>
 
+  <div ng-show="_courses.length">
   <fieldset>
         <label>
           <input type="checkbox" ng-model="followed_only" />
@@ -18,31 +19,26 @@
 
   <table id="courses-list" class="table">
     <tr>
-      <th>Code</th>
-      <th>Titre</th>
-      <th>Semestre</th>
-      <th>Statut</th>
-      <th>ECTS</th>
-      <th>Suivi&nbsp;?</th>
-      <th>Résultat</th>
-      <th>Session</th>
+      <th ng-repeat="f in fields|filter:displayedField"
+          data-field="_{ f.id }_">_{ f.label }_</th>
     </tr>
     <tr ng-repeat="c in courses()">
-      <td>_{c.code}_</td>
-      <td>_{c.title}_</td>
-      <td>_{c.semester}_</td>
-      <td>_{c.status}_</td>
-      <td>_{c.ects}_</td>
-      <td>_{c.followed ? "oui" : "non"}_</td>
-      <td>_{c.session ? (c.result + "/20") : ""}_</td>
-      <td>_{c.session}_</td>
+      <td ng-repeat="f in fields|filter:displayedField">
+        _{ fmtField(f.fmt, c[f.id], c) }_
+      </td>
     </tr>
   </table>
+  </div>
+  <div ng-hide="_courses.length">
+    <p>Il n’y a pas de cours disponible. Vérifiez que vos identifiants sont
+       corrects (ils doivent correspondre à ceux de Magma), et sinon signalez
+       le problème à <span class="email">b@ptistefontaine.fr</span>.</p>
+  </div>
 
 </div>
 
 <script type="x-json" id="courses-json">
-{% if g.student and g.student.courses %}
+{% if g.student is defined and g.student.courses is defined %}
   {{ g.student.courses|tojson|safe }}
 {% else %}
   {% raw %}
