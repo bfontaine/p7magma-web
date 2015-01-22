@@ -56,7 +56,10 @@ def session2student():
     if 'student' not in session:
         return None
 
-    return Student(**session['student'])
+    # the DNS resolution takes a lot of time. Don't know if it's my machine or
+    # something else
+    base_url = '194.254.199.51:2201'
+    return Student(base_url=base_url, **session['student'])
 
 
 ###############################################################################
