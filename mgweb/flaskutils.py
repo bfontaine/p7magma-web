@@ -2,9 +2,8 @@
 # Most of this code is copied from a closed-source personal project. This file
 # is part of p7magma-web and is thus under the MIT licence.
 
-from magma.base import Student
-
 from flask import g, redirect, url_for, session
+from magma.base import Student
 
 def student():
     """
@@ -57,7 +56,7 @@ def session2student():
     if 'student' not in session:
         return None
 
-    return Student(*session['student'])
+    return Student(**session['student'])
 
 
 ###############################################################################
