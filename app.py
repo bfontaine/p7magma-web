@@ -29,6 +29,7 @@ js = Bundle(
     # 'js/vendor/icheck.min.js',
     'js/vendor/bootstrap.min.js',
     'js/vendor/angular.js',
+    'js/vendor/sprintf.min.js',
     # Our JS
     'js/app.js',
     filters=js_filters,

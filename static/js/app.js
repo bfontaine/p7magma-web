@@ -9,6 +9,10 @@ app.controller('mgCourses', ['$scope', function rmSMSCtrl($scope) {
 
   _scope = $scope; // debug
 
+  function fmtResult(v) {
+    return sprintf("%05.2f/20", +v);
+  }
+
   $.extend(true, $scope, {
     fields: [
       {
@@ -41,12 +45,12 @@ app.controller('mgCourses', ['$scope', function rmSMSCtrl($scope) {
       {
         'id': 'result',
         'label': 'Note',
-        'fmt': function(v, c) { return c.session ? ("" + v + "/20") : "";  }
+        'fmt': function(v, c) { return c.session ? fmtResult(v) : "";  }
       },
       {
         'id': 'jury',
         'label': 'Note Jury',
-        'fmt': function(v, c) { return c.jury > 0 ? ("" + v + "/20") : "";  }
+        'fmt': function(v, c) { return c.jury > 0 ? fmtResult(v) : "";  }
       },
       {
         'id': 'session',
