@@ -27,7 +27,7 @@ deploy: stylecheck
 	git push -f; \
 	git checkout @{-1}
 
-run:
+run: deps
 	$(BINUTILS)/gunicorn app:app
 
 stylecheck: *.py deps
