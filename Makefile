@@ -19,12 +19,12 @@ freeze: $(VENV)
 
 stage:
 	git checkout $(STAGE_BRANCH) && \
-	git rebase master && \
+	git rebase master; \
 	git checkout @{-1}
 
 deploy: stylecheck
 	git checkout $(STAGE_BRANCH) && \
-	git push -f && \
+	git push -f; \
 	git checkout @{-1}
 
 run:
