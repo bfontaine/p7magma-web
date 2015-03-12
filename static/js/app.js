@@ -10,6 +10,10 @@ app.controller('mgCourses', ['$scope', function rmSMSCtrl($scope) {
   _scope = $scope; // debug
 
   function fmtResult(v) {
+    if (isNaN(+v)) {
+      return v;
+    }
+
     return sprintf("%05.2f/20", +v);
   }
 
